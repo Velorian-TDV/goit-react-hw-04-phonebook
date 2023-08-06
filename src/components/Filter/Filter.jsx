@@ -1,24 +1,14 @@
-import React from "react";
 import PropTypes from 'prop-types';
 
-export class Filter extends React.Component {
+export default function Filter({ search }) {
+    return (
+        <section className="search">
+            <label htmlFor='search'>Find contact by name</label>
+            <input type="text" id='search' onChange={search} placeholder="Search" />
+        </section>
+    )
+}
 
-    static propTypes = {
-        search: PropTypes.func,
-    }
-
-    constructor(props) {
-        super(props);
-
-        this.search = this.props.search;
-    }
-
-    render() {
-        return (
-            <section className="search">
-                <label htmlFor='search'>Find contact by name</label>
-                <input type="text" id='search' onChange={this.search} placeholder="Search" />
-            </section>
-        )
-    }
+Filter.propTypes = {
+    search: PropTypes.func,
 }
